@@ -18,9 +18,11 @@ public class Main {
         treeImp.insert(5);
         System.out.println(treeImp.find(5));
         System.out.println(treeImp.find(6));
+        System.out.println(treeImp.calculateHeihghtTree());
+        System.out.println(treeImp.findMinValues());
 //        treeImp.traversePreOrder();
 //        treeImp.traverseInOrder();
-        treeImp.traversePostOrder();
+//        treeImp.traversePostOrder();
         System.out.println("Hello");
 
     }

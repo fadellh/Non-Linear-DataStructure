@@ -129,4 +129,32 @@ public class Tree {
         System.out.println(root);
     }
 
+    public int calculateHeihghtTree (){
+        return height(root);
+    }
+
+    private int height(Node root){
+        if (root == null) return -1;
+
+        if(root.leftChild == null && root.rightChlid == null) return 0;
+
+        return 1 + Math.max(height(root.leftChild), height(root.rightChlid));
+    }
+
+    public int findMinValues(){
+        return findMinValue(root);
+    }
+
+    private int findMinValue(Node root){
+
+        if(root == null) throw new IllegalStateException();
+
+        if(root.leftChild == null || root.rightChlid == null) return root.value;
+
+        var left = findMinValue(root.leftChild);
+        var right = findMinValue(root.rightChlid);
+
+        return Math.min(Math.min(left,right),root.value);
+    }
+
 }
