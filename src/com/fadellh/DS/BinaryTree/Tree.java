@@ -157,4 +157,61 @@ public class Tree {
         return Math.min(Math.min(left,right),root.value);
     }
 
+    public boolean equals(Tree other){
+        return equals(root,other.root);
+    }
+
+    private boolean equals(Node first, Node second){
+        if(first == null && second == null ){
+            return true;
+        }
+
+        if(first != null && second != null)
+            return first.value == second.value
+                    && equals(first.leftChild, second.leftChild)
+                    && equals(first.rightChlid, second.rightChlid);
+
+        return false;
+    }
+
+    public boolean isBinarySearchTreeSelf(){
+        return isBinarySearchTreeSelf(root,-999,999);
+    }
+
+    private boolean isBinarySearchTreeSelf(Node root, int min, int max){
+        if(root == null){
+            return true;
+        }
+
+        if(root.leftChild !=null && root.rightChlid != null){
+            if(root.value > root.leftChild.value){
+                min = root.value;
+            }else if(root.value > min){
+                max = root.value;
+            }else{
+                return false;
+            }
+        }
+
+
+
+        isBinarySearchTreeSelf(root.leftChild,min,max);
+        isBinarySearchTreeSelf(root.rightChlid,min,max);
+        return false;
+    }
+
+    public boolean isBinarySearchTree(){
+       return isBinarySearchTree(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+
+    private boolean isBinarySearchTree(Node root, int min, int max){
+        if(root == null) return true;
+
+        if(root.value < min || root.value> max) return false;
+
+        return isBinarySearchTree(root.leftChild,min,root.value -1)
+                && isBinarySearchTree(root.rightChlid, root.value +1, max);
+    }
+
+
 }

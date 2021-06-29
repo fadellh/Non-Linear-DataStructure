@@ -16,10 +16,18 @@ public class Main {
         treeImp.insert(13);
         treeImp.insert(8);
         treeImp.insert(5);
-        System.out.println(treeImp.find(5));
-        System.out.println(treeImp.find(6));
-        System.out.println(treeImp.calculateHeihghtTree());
-        System.out.println(treeImp.findMinValues());
+//        treeImp.traversePreOrder();
+//        treeImp.traverseInOrder();
+        System.out.println(treeImp.isBinarySearchTree());
+
+//        var treeImp2 = new Tree();
+//        treeImp2.insert(10);
+//        treeImp2.insert(7);
+//        treeImp2.insert(12);
+//        treeImp2.insert(13);
+//        treeImp2.insert(8);
+//        treeImp2.insert(5);
+//        System.out.println(treeImp.equals(treeImp2));
 //        treeImp.traversePreOrder();
 //        treeImp.traverseInOrder();
 //        treeImp.traversePostOrder();
