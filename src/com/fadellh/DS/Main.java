@@ -16,10 +16,15 @@ public class Main {
         treeImp.insert(13);
         treeImp.insert(8);
         treeImp.insert(5);
+        treeImp.insert(2);
+        treeImp.insert(3);
+        treeImp.insert(1);
+        treeImp.insert(9);
+        treeImp.insert(14);
 //        treeImp.traversePreOrder();
 //        treeImp.traverseInOrder();
-        System.out.println(treeImp.isBinarySearchTree());
-
+//        System.out.println(treeImp.isBinarySearchTree());
+        treeImp.distanceTree(2);
 //        var treeImp2 = new Tree();
 //        treeImp2.insert(10);
 //        treeImp2.insert(7);

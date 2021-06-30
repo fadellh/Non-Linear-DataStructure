@@ -213,5 +213,22 @@ public class Tree {
                 && isBinarySearchTree(root.rightChlid, root.value +1, max);
     }
 
+    public void distanceTree(int num){
+         distanceTree(root,num);
+    }
+
+    //Work self
+    private void distanceTree(Node root, int dist){
+        if(root == null || dist < 0){
+            return;
+        }
+        if(dist == 0){
+            System.out.println(root.value);
+        }
+        var newDist = dist - 1;
+        distanceTree(root.leftChild,newDist);
+        distanceTree(root.rightChlid,newDist);
+
+    }
 
 }
