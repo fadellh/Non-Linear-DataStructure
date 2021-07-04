@@ -1,15 +1,14 @@
 package com.fadellh.DS.AVLTree;
 
-import com.fadellh.DS.BinaryTree.Tree;
-
 public class AvlTree {
 
-    private class Node{
+    private class AVLNode {
         private int value;
-        private Node leftChild;
-        private Node rightChlid;
+        private int height;
+        private AVLNode leftChild;
+        private AVLNode rightChlid;
 
-        public Node(int value){
+        public AVLNode(int value){
             this.value = value;
         }
 
@@ -19,26 +18,30 @@ public class AvlTree {
         }
     }
 
-    private Node root;
+    private AVLNode root;
 
     public void insert (int num) {
         root = insert(num,root);
     }
 
 
-    private Node insert(int num, Node root){
+    private AVLNode insert(int num, AVLNode root){
         if(root == null){
-            return new Node(num);
+            return new AVLNode(num);
         }
-
         if(num < root.value){
            root.leftChild = insert(num,root.leftChild);
         }else{
            root.rightChlid = insert(num, root.rightChlid);
         }
+
+        root.height = Math.max(height(root.leftChild),height(root.rightChlid)) + 1;
+
         return root;
     }
 
-
+    private int height (AVLNode node){
+        return node == null ? -1 : node.height;
+    }
 
 }
