@@ -37,11 +37,45 @@ public class AvlTree {
 
         root.height = Math.max(height(root.leftChild),height(root.rightChlid)) + 1;
 
+        balance(root);
+
+
         return root;
+    }
+
+    private void balance(AVLNode node) {
+        var balanceFactor = balanceFactor(node);
+        if(balanceFactor > 1){ //Detecting heavy kemana.
+            if((balanceFactor(root.leftChild))<0){
+                System.out.println("Left Rotate " + node.leftChild.value);
+            }
+            System.out.println("Right Rotate " + node.value);
+        }
+        else if(balanceFactor < -1){
+            if((balanceFactor(root.rightChlid)) > 0){
+                System.out.println("Right Rotate " + node.rightChlid.value);
+            }
+            System.out.println("Left Rotate " + node.value);
+        }
+    }
+
+
+    private void leftRotate(){
+        System.out.println(root.value + " is Left Heavy");
+    }
+
+
+    private void rightRotate(){
+        System.out.println(root.value + " is right heavy");
     }
 
     private int height (AVLNode node){
         return node == null ? -1 : node.height;
     }
+
+    private int balanceFactor (AVLNode node){
+      return node == null ? 0: height(node.leftChild) - height(node.rightChlid);
+    }
+
 
 }
