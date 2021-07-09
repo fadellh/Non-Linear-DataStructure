@@ -35,38 +35,56 @@ public class AvlTree {
            root.rightChlid = insert(num, root.rightChlid);
         }
 
-        root.height = Math.max(height(root.leftChild),height(root.rightChlid)) + 1;
+        setHeight(root);
 
-        balance(root);
+       return balance(root);
 
+    }
+
+    private AVLNode balance(AVLNode node) {
+        var balanceFactor = balanceFactor(node);
+        if(balanceFactor > 1){ //Detecting heavy kemana.
+            if((balanceFactor(root.leftChild))<0){
+             root.leftChild =  leftRotate(root.leftChild);
+            }
+           return rightRotate(root);
+        }
+        else if(balanceFactor < -1){
+            if((balanceFactor(root.rightChlid)) > 0){
+              root.rightChlid =  rightRotate(root.rightChlid);
+            }
+         return  leftRotate(root);
+        }
 
         return root;
     }
 
-    private void balance(AVLNode node) {
-        var balanceFactor = balanceFactor(node);
-        if(balanceFactor > 1){ //Detecting heavy kemana.
-            if((balanceFactor(root.leftChild))<0){
-                System.out.println("Left Rotate " + node.leftChild.value);
-            }
-            System.out.println("Right Rotate " + node.value);
-        }
-        else if(balanceFactor < -1){
-            if((balanceFactor(root.rightChlid)) > 0){
-                System.out.println("Right Rotate " + node.rightChlid.value);
-            }
-            System.out.println("Left Rotate " + node.value);
-        }
+
+    private AVLNode leftRotate(AVLNode root){
+
+        var newRoot = root.rightChlid;
+        root.rightChlid = newRoot.leftChild;
+        newRoot.leftChild = root;
+
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
     }
 
-
-    private void leftRotate(){
-        System.out.println(root.value + " is Left Heavy");
+    private void setHeight(AVLNode node){
+        node.height = Math.max(height(node.leftChild),height(node.rightChlid)) +1;
     }
 
+    private AVLNode rightRotate(AVLNode root){
+        var newRoot = root.rightChlid;
+        root.leftChild = newRoot.rightChlid;
+        newRoot.rightChlid = root;
 
-    private void rightRotate(){
-        System.out.println(root.value + " is right heavy");
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
     }
 
     private int height (AVLNode node){
