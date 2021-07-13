@@ -2,6 +2,9 @@ package com.fadellh.DS;
 
 import com.fadellh.DS.AVLTree.AvlTree;
 import com.fadellh.DS.BinaryTree.Tree;
+import com.fadellh.DS.Heap.Heap;
+
+import java.util.Arrays;
 
 public class Main {
 
@@ -43,17 +46,36 @@ public class Main {
         //==========================AVLTree==========================================
         //==========================AVLTree==========================================
 
-        var tree = new AvlTree();
-        tree.insert(10);
-        tree.insert(12);
-        tree.insert(5);
-        tree.insert(6);
-        tree.insert(7);
-        tree.insert(9);
+//        var tree = new AvlTree();
+//        tree.insert(10);
+//        tree.insert(12);
+//        tree.insert(5);
+//        tree.insert(6);
+//        tree.insert(7);
+//        tree.insert(9);
 
         //==========================AVLTree==========================================
         //==========================AVLTree==========================================
         //==========================AVLTree==========================================
+
+
+        // ==========================Heap==========================================
+        // ==========================Heap==========================================
+
+        var heap = new Heap();
+
+        heap.insert(10);
+        heap.insert(5);
+        heap.insert(17);
+        heap.insert(4);
+        heap.insert(22);
+       heap.print();
+       heap.remove();
+       heap.print();
+        // ==========================Heap==========================================
+        // ==========================Heap==========================================
+
+
 
     }
 }
