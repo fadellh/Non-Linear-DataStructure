@@ -36,6 +36,11 @@ public class Heap {
         }
     }
 
+
+
+
+
+
     private boolean hasLeftChild(int index){
         return leftChildIndex(index) <= size;
     }

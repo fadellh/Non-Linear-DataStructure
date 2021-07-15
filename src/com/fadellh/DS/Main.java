@@ -3,6 +3,7 @@ package com.fadellh.DS;
 import com.fadellh.DS.AVLTree.AvlTree;
 import com.fadellh.DS.BinaryTree.Tree;
 import com.fadellh.DS.Heap.Heap;
+import com.fadellh.DS.Heap.MaxHeap;
 
 import java.util.Arrays;
 
@@ -62,18 +63,28 @@ public class Main {
         // ==========================Heap==========================================
         // ==========================Heap==========================================
 
-        var heap = new Heap();
+//        var heap = new Heap();
+//
+//        heap.insert(10);
+//        heap.insert(5);
+//        heap.insert(17);
+//        heap.insert(4);
+//        heap.insert(22);
+//        heap.insert(1);
+//       heap.print();
+////       heap.remove();
+//       heap.print();
+        // ==========================Heap==========================================
+        // ==========================Heap==========================================
 
-        heap.insert(10);
-        heap.insert(5);
-        heap.insert(17);
-        heap.insert(4);
-        heap.insert(22);
-       heap.print();
-       heap.remove();
-       heap.print();
-        // ==========================Heap==========================================
-        // ==========================Heap==========================================
+        // ==========================MaxHeap==========================================
+        // ==========================MaxHeap==========================================
+        int [] numbers = {5,3,8,4,1,2};
+        MaxHeap.heapify(numbers);
+        System.out.println(Arrays.toString(numbers));
+
+        // ==========================MaxHeap==========================================
+        // ==========================MaxHeap==========================================
 
 
 
